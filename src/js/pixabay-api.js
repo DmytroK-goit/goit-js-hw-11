@@ -1,24 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const searchForm = document.querySelector('#search-form');
+export async function performSearch(searchQuery) {
+  const API_KEY = '44758497-ea11318ae0823ef09cb8fbdb5';
+  const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
+    searchQuery
+  )}&image_type=photo`;
 
-  searchForm.addEventListener('submit', event => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const searchQuery = formData.get('query');
-
-    if (searchQuery && searchQuery.trim()) {
-      console.log('Форма відправлена з даними:');
-      console.log(`Пошуковий запит: ${searchQuery}`);
-      performSearch(searchQuery.trim());
-    } else {
-      console.log('Поле вводу пусте.');
-      alert('Будь ласка, введіть пошуковий запит.');
+  try {
+    const response = await fetch(URL);
+    if (!response.ok) {
+      throw new Error('Не вдалося виконати запит.');
     }
-  });
-});
-
-function performSearch(query) {
-  console.log(`Виконання пошуку для: ${query}`);
-  // Логіка пошуку або обробки даних тут
+    const data = await response.json();
+    if (data.totalHits > 0) {
+      console.log(`Знайдено ${data.totalHits} результатів.`);
+      return data.hits;
+    } else {
+      console.log('Нічого не знайдено.');
+      return [];
+    }
+  } catch (error) {
+    console.error('Помилка під час виконання запиту:', error);
+    throw error;
+  }
 }
