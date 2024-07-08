@@ -7,10 +7,13 @@
   <title>Document</title>
   
   <script type="module" crossorigin src="/vanilla-app-template/commonHelpers.js"></script>
-  <link rel="stylesheet" href="/vanilla-app-template/assets/index-5552e108.css">
+  <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-10cb7c31.js">
+  <link rel="stylesheet" href="/vanilla-app-template/assets/vendor-a088063d.css">
+  <link rel="stylesheet" href="/vanilla-app-template/assets/index-5810db92.css">
 </head>
 
 <body>
+  <span class="loader"></span>
   <form class="search-form" id="search-form">
     <input type="text" id="searchInput" name="query" placeholder="Search images">
     <button id="searchButton" type="submit">Search</button>
@@ -18,6 +21,8 @@
 
   <div class="gallery" id="gallery"></div>
 </body>
+
+
 
 
 </html>
