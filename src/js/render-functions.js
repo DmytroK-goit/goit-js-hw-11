@@ -1,3 +1,7 @@
+import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 export function renderImages(images) {
   const gallery = document.querySelector('#gallery');
   if (!gallery) {
@@ -14,8 +18,15 @@ export function renderImages(images) {
     .map(image => {
       return `
       <div class="image-card">
-        <img src="${image.webformatURL}" alt="${image.tags}" />
-        <p>Likes: ${image.likes}</p>
+      <a href="${image.webformatURL}">
+    <img src="${image.webformatURL}" alt="" title="" />
+  </a>
+  <a href="${image.largeImageURL}">
+    <img src="${image.largeImageURL}" alt="" title="${image.tags}" />
+  </a>
+        <p>views: ${image.views}</p>
+        <p>comments: ${image.comments}</p>
+        <p>downloads: ${image.downloads}</p>
       </div>
     `;
     })
@@ -23,3 +34,9 @@ export function renderImages(images) {
 
   gallery.innerHTML = markup;
 }
+const lightbox = new SimpleLightbox('.gallery', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  navText: ['&larr;', '&rarr;'],
+  closeText: '&times;',
+});

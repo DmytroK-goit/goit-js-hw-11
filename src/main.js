@@ -1,12 +1,17 @@
-import { performSearch } from '/js/pixabay-api.js';
-import { renderImages } from '/js/render-functions.js';
+import { performSearch } from './js/pixabay-api.js';
+import { renderImages } from './js/render-functions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM повністю завантажений і готовий.');
   const searchForm = document.querySelector('#search-form');
 
+  if (!searchForm) {
+    console.error('Форма не знайдена.');
+    return;
+  }
   searchForm.addEventListener('submit', event => {
     event.preventDefault();
-
+    console.log('Обробка події submit.');
     const formData = new FormData(event.target);
     const searchQuery = formData.get('query');
 
