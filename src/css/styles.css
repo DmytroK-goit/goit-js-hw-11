@@ -77,3 +77,10 @@ input {
     transform: rotate(360deg);
   }
 }
+
+.image-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: 700;
+}
