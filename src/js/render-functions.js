@@ -19,6 +19,7 @@ export function renderImages(images) {
       <div class="image-card">
             <a href="${image.largeImageURL}"><img src="${image.webformatURL}" alt="${image.tags}" /></a>
             <div class="image-text">
+        <p>likes: ${image.likes}</p>
         <p>views: ${image.views}</p>
         <p>comments: ${image.comments}</p>
         <p>downloads: ${image.downloads}</p>
@@ -29,11 +30,11 @@ export function renderImages(images) {
     .join('');
 
   gallery.innerHTML = markup;
-
-  const lightbox = new SimpleLightbox('.image-card a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-    navText: ['&larr;', '&rarr;'],
-    closeText: '&times;',
-  });
+  lightbox.refresh();
 }
+const lightbox = new SimpleLightbox('.image-card a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  navText: ['&larr;', '&rarr;'],
+  closeText: '&times;',
+});

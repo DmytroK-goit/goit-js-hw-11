@@ -55,10 +55,11 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
 }
 
 .loader {
-  display: block;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -82,9 +83,21 @@ input {
   }
 }
 
+.image-card {
+  border: 1px solid gray;
+
+}
+
+.image-card img {
+  display: block;
+  justify-content: center;
+  overflow: auto;
+}
+
 .image-text {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   font-weight: 700;
+
 }
