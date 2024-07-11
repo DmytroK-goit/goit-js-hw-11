@@ -1,5 +1,5 @@
-import { performSearch } from './js/pixabay-api.js';
-import { renderImages } from './js/render-functions.js';
+import { performSearch } from '/js/pixabay-api.js';
+import { renderImages } from '/js/render-functions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM повністю завантажений і готовий.');
