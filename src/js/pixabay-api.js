@@ -44,7 +44,7 @@ export async function performSearch(searchQuery) {
     }
   } catch (error) {
     hideLoader();
-    console.error('Помилка під час виконання запиту:', error);
+    // console.error('Помилка під час виконання запиту:', error);
     throw error;
   }
 }
