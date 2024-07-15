@@ -9,8 +9,6 @@ searchForm.addEventListener('submit', event => {
   const searchQuery = formData.get('query');
 
   if (searchQuery && searchQuery.trim()) {
-    // console.log(`Пошуковий запит: ${searchQuery.trim()}`);
-
     performSearch(searchQuery.trim())
       .then(results => {
         console.log(results);
