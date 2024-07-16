@@ -1,6 +1,3 @@
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
-
 const loader = document.querySelector('.loader');
 
 export function showLoader() {

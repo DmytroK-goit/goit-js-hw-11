@@ -52,6 +52,10 @@ searchForm.addEventListener('submit', event => {
         throw error;
       });
   } else {
-    alert('Будь ласка, введіть пошуковий запит.');
+    iziToast.show({
+      position: 'center',
+      backgroundColor: 'orange',
+      message: 'Будь ласка, введіть пошуковий запит.',
+    });
   }
 });
