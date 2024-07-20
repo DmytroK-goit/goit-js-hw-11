@@ -1,17 +1,9 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export function renderImages(images) {
-  const gallery = document.querySelector('#gallery');
-  if (!gallery) {
-    console.error('Елемент #gallery не знайдений в DOM.');
-    return;
-  }
+const gallery = document.querySelector('#gallery');
 
-  if (images.length === 0) {
-    gallery.innerHTML = '<p>Нічого не знайдено.</p>';
-    return;
-  }
+export function renderImages(images) {
 
   const markup = images
     .map(image => {

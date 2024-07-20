@@ -13,5 +13,12 @@ export function performSearch(searchQuery) {
   const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
     searchQuery
   )}&image_type=photo`;
-  return fetch(URL);
+  return fetch(URL)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Не вдалося виконати запит.');
+    }
+    return response.json();
+  })
+
 }
